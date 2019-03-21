@@ -10,20 +10,20 @@ spec:
     targetPort: 4000
   type: NodePort
   selector:
-    app: example-pod
+    app: example-app
 ---
-apiVersion: v1
-kind: ReplicationController
+apiVersion: extensions/v1beta1
+kind: Deployment
 metadata:
-  name: example-replica
+  name: example-deployment
   labels:
-    app: example-replica
+    app: example-deployment
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: example-pod
+        app: example-app
     spec:
       containers:
       - name: example-container
