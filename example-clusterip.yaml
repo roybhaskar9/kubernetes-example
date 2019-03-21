@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: example-service
+  name: example-service-ci
   labels:
-    app: example-service
+    app: example-service-ci
 spec:
   ports:
   - port: 80
@@ -14,18 +14,18 @@ spec:
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: example-deployment
+  name: example-deployment-ci
   labels:
-    app: example-deployment
+    app: example-deployment-ci
 spec:
   replicas: 1
   template:
     metadata:
       labels:
-        app: example-app
+        app: example-app-ci
     spec:
       containers:
-      - name: example-container
+      - name: example-container-ci
         image: zlabjp/docker-example:release-0.1.0
         ports:
         - containerPort: 4000
